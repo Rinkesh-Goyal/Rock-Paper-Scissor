@@ -11,26 +11,32 @@ function playRound(playerSelection,computerSelection){
     if(playerSelection===computerSelection)
         alert("Tie");
     else if(playerSelection==="rock" && computerSelection === "scissor"){
-        alert("player"); 
+        // alert("player"); 
         playerScore++;
     }
     
     else if(playerSelection==="scissor" && computerSelection === "rock"){ 
-        alert("computer");
+        // alert("computer");
         computerScore++;
     }
 
-    else if(playerSelection==="paper" && computerSelection === "scissor"){alert("computer"); computerScore++;}
+    else if(playerSelection==="paper" && computerSelection === "scissor"){
+        // alert("computer"); 
+        computerScore++;
+    }
 
     else if(playerSelection==="scissor" && computerSelection === "paper"){        
-        alert("player"); 
+        // alert("player"); 
         playerScore++;
     }
 
-    else if(playerSelection==="rock" && computerSelection === "paper"){alert("computer"); computerScore++;}
+    else if(playerSelection==="rock" && computerSelection === "paper"){
+        // alert("computer");
+        computerScore++;
+    }
 
     else{        
-        alert("player"); 
+        // alert("player"); 
         playerScore++;
     }
 
@@ -41,7 +47,8 @@ function playRound(playerSelection,computerSelection){
 function game(){
     
     for(let round = 0;round<5;round++){
-        let playerSelection=prompt("Enter your choice (Rock,Paper,Scissor)").toLowerCase();
+        let playerSelection=document.getElementById("game").value;
+        // document.write(playerSelection);
         let computerSelection=result[computerPlay()];
         playRound(playerSelection,computerSelection);       
     }
