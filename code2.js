@@ -1,21 +1,21 @@
 let input=["Rock","Paper","Scissor"];
 let playerScore1=0;
 let computerScore1=0;
-let img=new Image();
+
 let playerSelection;
 let computerSelection;
 
 
-function computerPlay(){
-    return Math.floor(Math.random()*3);
-}
 
-playerSelection;
-computerSelection=input[computerPlay()];
+
+
+
+
 
 function playRound(playerSelection,computerSelection){
     
-    console.log(playerSelection)
+    // console.log(playerSelection);
+    // console.log(computerSelection);
 
     if(playerSelection===computerSelection){
        document.querySelector("#computerSelection").setAttribute("src",`Assets\\${computerSelection}.png`)
@@ -91,7 +91,7 @@ for(let i = 0;i<btn.length;i++)
 
 
 function game(e){
-    
+    computerSelection=input[Math.floor(Math.random()*3)];    
     playRound(getPlayerSelection(e),computerSelection);       
     
     document.querySelector("#playerScore").innerHTML=playerScore1.toString();
