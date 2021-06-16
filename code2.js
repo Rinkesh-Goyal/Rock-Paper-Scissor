@@ -1,7 +1,7 @@
 let input=["rock","paper","scissor"];
 let playerScore1=0;
 let computerScore1=0;
-let round=0;
+
 
 function computerPlay(){
     return Math.floor(Math.random()*3);
@@ -61,7 +61,6 @@ function playRound(playerSelection,computerSelection){
 
 function getPlayerSelection(e){
     playerSelection=e.target.value.toLowerCase();
-    round++;
     return playerSelection;
 }
 
@@ -71,12 +70,7 @@ for(let i = 0;i<btn.length;i++)
     btn[i].addEventListener('click',game);
 }
 
-function printRslt(e){
-    window.onload=  function(){
-        const div = document.querySelector("#rslt").textContent=e;
-        // div.p.textContent=e;
-    }
-}
+
 
 
 function game(e){
@@ -85,23 +79,27 @@ function game(e){
     
     console.log(playerScore1);
     console.log(computerScore1);
-    console.log(round);
 
-    if(round===5){
+
+    if(playerScore1===5||computerScore1===5){
         const btn=document.querySelectorAll(".game");
         for(let i = 0;i<btn.length;i++){
             btn[i].disabled=true;
         }
-    if(playerScore1===computerScore1) {
-        printRslt("Tie");
+    
+        if(playerScore1===computerScore1) {
+            document.querySelector("#rslt").textContent="Tie";
+        }
+        
+        else if(playerScore1>computerScore1){ 
+            document.querySelector("#rslt").textContent="You Won";
+        }
+        else{     
+            document.querySelector("#rslt").textContent="You lose!";
+        }
+        
+        
     }
-    else if(playerScore1>computerScore1){ 
-        printRslt("You Won");
-    }
-    else{     
-        printRslt("You Lose!");
-    }
-}
 }
 
         
